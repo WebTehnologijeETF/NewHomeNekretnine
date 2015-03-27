@@ -19,16 +19,19 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-nav {
-	background-color: SteelBlue;
-}
 
 nav ul#menu {
-	padding: 20px 20px;
+	position: fixed;
+	left: 150px;
+	top: 42px;
+	padding: 0px 0px;
+	margin: 0px;
+	width: 100%;
 	background-color: SteelBlue;
 }
 
 nav ul#menu li {
+	float: left;
 	padding: 0px 0px;
 	display: inline;
 	font-family: 'Dosis', sans-serif;
@@ -36,6 +39,7 @@ nav ul#menu li {
 
 nav ul#menu li a{
 	background-color: SteelBlue;
+	display: block;
     color: white;
     padding: 20px 20px;
     text-decoration: none;
@@ -47,4 +51,22 @@ nav ul#menu li a:hover {
 
 #menu a.active {
 	background-color: #1C3448;
+}
+
+img.logo {
+	width: 150px;
+	height: 97px;
+}
+
+#logo {
+	right: 50px;
+	float:left;
+	background-color: SteelBlue;
+	padding: 0;
+}
+
+h3 {
+	font-family: 'Pacifico', cursive;
+	font-size: 180%;
+	background-color: SteelBlue;
 }
