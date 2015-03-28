@@ -74,7 +74,7 @@ div#logo {
 	z-index: 1;
 }
 
-h3#logo {
+h3#logonaslov {
 	z-index: 1;
 	left: 150px;
 	position: fixed;
@@ -94,24 +94,55 @@ section {
 }
 
 div.nekretnine {
+	position: relative;
 	width: 45%;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px;
 	text-align: left;
+	clear: both;
 }
 
 h2 {
 	font-size: 150%;
+	padding: 10px;
+}
+
+div.nekretnina {
+	overflow: auto;
+	max-height: auto;
+	width: 95%;
+	top: 5px;
+	padding: 15px;
+	border: solid 5px SteelBlue;
+	border-radius: 8px;
+}
+
+img.nekretnina {
+	display: inline-block;
+	float: right;
+	max-width: 290px;
+	max-height: 290px;
+	border: solid 3px SteelBlue;
+	border-radius: 8px;
+}
+
+h3.nekretnina {
+	font-size: 120%;
+	padding: 5px;
+}
+
+p.nekretnina {
+	
 }
 
 footer {
-	position: fixed;
-	bottom: 0px;
+	position: relative;
+	clear: both;
+	margin-top: -60px;
 	height: 60px;
 	width: 100%;
 	background-color: SteelBlue;
-	z-index: 0;
 }
 
 p.footer {
