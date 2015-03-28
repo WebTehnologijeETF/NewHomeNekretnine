@@ -33,6 +33,7 @@ nav ul#menu {
 	padding: 0px 0px;
 	margin: 0px;
 	width: 100%;
+	border-bottom: 3px solid white;
 	background-color: SteelBlue;
 	z-index: 1;
 }
@@ -110,12 +111,13 @@ h2 {
 
 div.nekretnina {
 	overflow: auto;
-	max-height: auto;
 	width: 95%;
 	top: 5px;
 	padding: 15px;
-	border: solid 5px SteelBlue;
-	border-radius: 8px;
+	background-color: SteelBlue;
+	color: white;
+	border: solid 5px white;
+	border-radius: 12px;
 }
 
 img.nekretnina {
@@ -123,17 +125,28 @@ img.nekretnina {
 	float: right;
 	max-width: 290px;
 	max-height: 290px;
-	border: solid 3px SteelBlue;
+	border: solid 3px white;
 	border-radius: 8px;
 }
 
 h3.nekretnina {
+	font-family: 'Dosis', sans-serif;
 	font-size: 120%;
 	padding: 5px;
 }
 
+sup {
+    vertical-align: super;
+    font-size: smaller;
+} 
+
 p.nekretnina {
-	
+	font-family: 'Dosis', sans-serif;
+	padding: 15px;
+}
+
+p.nekretnina a {
+	color: LightSteelBlue;
 }
 
 footer {
@@ -143,6 +156,7 @@ footer {
 	height: 60px;
 	width: 100%;
 	background-color: SteelBlue;
+    font-family: 'Dosis', sans-serif;
 }
 
 p.footer {
@@ -152,24 +166,26 @@ p.footer {
 	top: 15px;
 }
 
-table#agenti {
+table {
 	height: 100%;
 	width: 100%;
 }
 
-table#agenti tr:nth-child(even) {
+table tr:nth-child(even) {
     background-color: #eee;
 }
-table#agenti tr:nth-child(odd) {
+table tr:nth-child(odd) {
    background-color:#fff;
 }
 table, th, td {
-	padding: 5px;
+	padding: 20px;
 	border: 1px solid black;
 	border-collapse: collapse;
 }
-table#agenti th	{
-    background-color: #fff;
-    font-weight: bold;
+table th {
+    background-color: SteelBlue;
+    color: white;
+    font-size: 110%;
+    font-family: 'Dosis', sans-serif;
 	text-align: center;
 }
