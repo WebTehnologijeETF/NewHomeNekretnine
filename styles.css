@@ -151,6 +151,12 @@ p.nekretnina {
 	padding: 15px;
 }
 
+p.detalji {
+	font-family: 'Dosis', sans-serif;
+	font-size: small;
+	padding: 5px;
+}
+
 p.nekretnina a {
 	color: LightSteelBlue;
 }
