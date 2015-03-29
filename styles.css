@@ -98,7 +98,7 @@ section {
 	text-align: left;
 }
 
-div.nekretnine {
+div.content {
 	position: relative;
 	width: 45%;
 	height: 100%;
@@ -209,3 +209,6 @@ div.wrapper {
 	margin-bottom: -60px;
 }
 
+form {
+	font-family: 'Dosis', sans-serif;
+}

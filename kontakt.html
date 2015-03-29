@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>New Home Kontakt</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<header>
+		<div id="logo">
+			<a href="index.html">
+				<img class="logo" src="resources/logo.png" alt="Logo">
+			</a>
+		</div>
+		
+		<div id="header">
+			<h3 id="logonaslov">New Home Realestate</h3>
+		</div>
+
+		<nav>
+			<ul id="menu">
+				<li><a href="index.html">Početna</a></li>
+				<li><a href="#">Nekretnine</a></li>
+				<li><a href="#">Pretraga</a></li>
+				<li><a href="agenti.html">Agenti i poslovnice</a></li>
+				<li><a class="active" href="kontakt.html">Kontakt</a></li>
+				<li><a href="linkovi.html">Linkovi</a></li>
+			</ul>
+		</nav>
+</header>
+
+<div class="wrapper">
+	<section>
+		<h2>Kontaktirajte agenta</h2>
+		<p>Ukoliko želite da stupite u kontakt sa jednim od uposlenih agenata u našoj agenciji posjetite stranicu na sljedećem <a href="agenti.html">linku</a>.<br><br> Naš glavni cilj je da Vi uz našu pomoć 
+		 nađete Vaš Novi Dom!</p>
+	</section>
+
+	<div class="content">
+		<h2>Kontaktirajte vlasnika stranice</h2>
+		<form>
+			Ime:<br>
+			<input required="" type="text" name="ime">
+			<br><br>
+			Prezime:<br>
+			<input required="" type="text" name="prezime">
+			<br><br>
+			E-mail:<br>
+			<input required="" type="email" name="email">
+			<br>
+			<input type="checkbox" name="maillist">Želim biti na New Home mailing listi i dobijati obavještenja o novim i popularnim nekretninama!
+			<br><br>
+			Broj telefona:<br>
+			<input required="" type="tel" name="email">
+			<br><br>
+			Grad:<br>
+			<input list="gradovi">
+				<datalist id="gradovi">
+					<option value="Sarajevo">
+					<option value="Banja Luka">
+					<option value="Tuzla">
+					<option value="Zenica">
+					<option value="Mostar">
+					<option value="Bihać">
+					<option value="Trebinje">
+				</datalist>
+			<br><br>
+			Poruka:<br>
+			<textarea required="" name="poruka" rows="10" cols="70"></textarea>
+			<br><br>
+			<button type="submit">Pošalji</button>
+			<button type="reset">Poništi</button>
+		</form>
+	</div>
+
+</div>
+
+<footer>
+	<p class="footer">Tarik Demirović</p>
+	<p class="footer">demirovict@gmail.com</p>
+</footer>
+
+</body>
+
+</html>
