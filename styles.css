@@ -226,7 +226,7 @@ li#android {
 	list-style-image: url("resources/android.png");
 }
 
-li#market {
+li#market, li#market1 {
 	list-style-image: url("resources/shop.png");
 }
 
