@@ -194,6 +194,7 @@ table, th, td {
 	border: 1px solid white;
 	border-collapse: collapse;
 }
+
 table th {
     background-color: SteelBlue;
     color: white;
