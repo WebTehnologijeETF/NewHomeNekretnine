@@ -59,6 +59,16 @@ nav ul#menu li a{
 
 nav ul#menu li a:hover {
 	background-color: #1C3448;
+	outline: none;
+}
+
+nav ul#menu li a:active {
+	background-color: #1C3448;
+	outline: none;
+}
+
+nav ul#menu li a:focus, a:visited {
+	outline: none;
 }
 
 #menu a.active {
@@ -86,6 +96,46 @@ h3#logonaslov {
 	font-family: 'Pacifico', cursive;
 	font-size: 180%;
 	background-color: SteelBlue;
+}
+
+div.menuList {
+	position: fixed;
+	top: 101px;
+	z-index: 1;
+	display: none;
+}
+
+ul.subList {
+	list-style-type:none;
+	background-color: SteelBlue;
+	font-family: 'Dosis', sans-serif;
+}
+
+ul.subList li {
+	padding: 20px;
+}
+
+ul.subList li:hover {
+	background-color: #1C3448;
+}
+
+ul.subList li a {
+	color: white;
+	text-decoration: none;
+}
+
+ul.subList li a:hover {
+	background-color: #1C3448;
+	outline: none;
+}
+
+ul.subList li a:active {
+	background-color: #1C3448;
+	outline: none;
+}
+
+ul.subList li a:focus, a:visited {
+	outline: none;
 }
 
 section {
