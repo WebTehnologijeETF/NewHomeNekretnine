@@ -1,8 +1,8 @@
 function crtajMeni(idClicked, idMeni){
 	var meniToShow = document.getElementById(idMeni);
-	var clicked = $("#"+idClicked);
+	var clicked = document.getElementById(idClicked);
 
-	var offset = clicked.offset();
+	var offset = clicked.getBoundingClientRect();
 
 
 	meniToShow.style.left = offset.left + "px";
