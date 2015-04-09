@@ -28,10 +28,9 @@
 			<ul id="menu">
 				<li><a id="m1" href="index.html">Početna</a></li>
 				<li><a id="m2" href="javascript:void(0);" onclick="crtajMeni('m2', 'sm2')"  onmouseleave="brisiMeni('sm2')">Nekretnine</a></li>
-				<li><a id="m3" href="#" onclick="crtajMeni('m3', 'sm3')">Pretraga</a></li>
-				<li><a id="m4" href="agenti.html" onclick="crtajMeni('m4', 'sm4')">Agenti i poslovnice</a></li>
-				<li><a id="m5" href="kontakt.html" onclick="crtajMeni('m5', 'sm5')" class="active">Kontakt</a></li>
-				<li><a id="m6" href="linkovi.html" onclick="crtajMeni('m6', 'sm6')">Linkovi</a></li>
+				<li><a id="m3" href="#">Pretraga</a></li>
+				<li><a id="m4" href="javascript:void(0);" onclick="crtajMeni('m4', 'sm4')" onmouseleave="brisiMeni('sm4')" class="active">Kontakt</a></li>
+				<li><a id="m5" href="linkovi.html">Linkovi</a></li>
 			</ul>
 		</nav>
 </header>
@@ -53,17 +52,14 @@
 
 		</ul>
 	</div>
-	<div class="menuList" id="sm4">
-		<ul class="subList">
 
+	<div class="menuList" id="sm4" onmouseenter="crtajMeni('m4', 'sm4')" onmouseleave="brisiMeni('sm4')">
+		<ul class="subList">
+			<li onclick="klikni(this)"><a href="agenti.html" class="subItem">Agenti</a></li>
+			<li onclick="klikni(this)"><a href="kontakt.html" class="subItem">Kontakt forma</a></li>
 		</ul>
 	</div>
 	<div class="menuList" id="sm5">
-		<ul class="subList">
-
-		</ul>
-	</div>
-	<div class="menuList" id="sm6">
 		
 	</div>
 </div>
