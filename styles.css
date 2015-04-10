@@ -100,7 +100,7 @@ h3#logonaslov {
 
 div.menuList {
 	position: fixed;
-	top: 101px;
+	top: 100px;
 	z-index: 1;
 	display: none;
 }

@@ -8,8 +8,6 @@
 	<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 	<link rel="icon" type="image/png" href="resources/favicon.png">
-	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
-	<script src="scripts.js"></script>
 </head>
 
 <body>
@@ -27,9 +25,9 @@
 		<nav>
 			<ul id="menu">
 				<li><a id="m1" href="index.html">Početna</a></li>
-				<li><a id="m2" href="javascript:void(0);" onclick="crtajMeni('m2', 'sm2')"  onmouseleave="brisiMeni('sm2')">Nekretnine</a></li>
+				<li><a id="m2" href="javascript:void(0);">Nekretnine</a></li>
 				<li><a id="m3" href="#">Pretraga</a></li>
-				<li><a id="m4" href="javascript:void(0);" onclick="crtajMeni('m4', 'sm4')" onmouseleave="brisiMeni('sm4')" class="active">Kontakt</a></li>
+				<li><a id="m4" href="javascript:void(0);" class="active">Kontakt</a></li>
 				<li><a id="m5" href="linkovi.html">Linkovi</a></li>
 			</ul>
 		</nav>
@@ -40,7 +38,7 @@
 		<ul class="subList">
 		</ul>
 	</div>
-	<div class="menuList" id="sm2" onmouseenter="crtajMeni('m2', 'sm2')" onmouseleave="brisiMeni('sm2')">
+	<div class="menuList" id="sm2">
 		<ul class="subList">
 			<li onclick="klikni(this)"><a href="#" class="subItem">Stanovi</a></li>
 			<li onclick="klikni(this)"><a href="#" class="subItem">Kuće</a></li>
@@ -53,7 +51,7 @@
 		</ul>
 	</div>
 
-	<div class="menuList" id="sm4" onmouseenter="crtajMeni('m4', 'sm4')" onmouseleave="brisiMeni('sm4')">
+	<div class="menuList" id="sm4">
 		<ul class="subList">
 			<li onclick="klikni(this)"><a href="agenti.html" class="subItem">Agenti</a></li>
 			<li onclick="klikni(this)"><a href="kontakt.html" class="subItem">Kontakt forma</a></li>
@@ -113,6 +111,8 @@
 	<p class="footer">Tarik Demirović</p>
 	<p class="footer">demirovict@gmail.com</p>
 </footer>
+
+<script src="scripts.js"></script>
 
 </body>
 
