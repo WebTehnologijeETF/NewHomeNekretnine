@@ -18,7 +18,8 @@ function crtajMeni(clicked){
 	var offset = document.getElementById(id2).getBoundingClientRect();
 
 	meniToShow.style.left = offset.left + "px";
-	meniToShow.style.display = "block";
+	meniToShow.style.visibility = "visible";
+	meniToShow.style.opacity = "1";
 }
 
 function brisiMeni(meniToHide){
@@ -34,8 +35,9 @@ function brisiMeni(meniToHide){
 	}
 
 	var sMeni = document.getElementById(id);
+	sMeni.style.opacity = "0";
+	sMeni.style.visibility = "hidden";
 	sMeni.style.left = "0px";
-	sMeni.style.display = "none";
 }
 
 function klikni(clicked){

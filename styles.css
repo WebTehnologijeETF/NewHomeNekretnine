@@ -102,7 +102,9 @@ div.menuList {
 	position: fixed;
 	top: 100px;
 	z-index: 1;
-	display: none;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.15s linear;
 }
 
 ul.subList {
@@ -283,4 +285,13 @@ li#market, li#market1 {
 a.external {
 	vertical-align: 50%;
 	font-family: 'Dosis', sans-serif;
+}
+
+div.ep {
+	display: inline-block;
+	visibility: hidden;
+	color: red;
+	font-style: italic;
+	font-family: 'Dosis', sans-serif;
+	font-size: small;
 }

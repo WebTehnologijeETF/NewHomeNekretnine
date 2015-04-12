@@ -71,23 +71,27 @@
 
 	<div class="content">
 		<h2>Kontaktirajte vlasnika stranice</h2>
-		<form>
-			Ime:<br>
-			<input required="" type="text" name="ime">
+		<form name="kontaktForma" id="kf" action="#">
+			Ime:*<br>
+			<input type="text" name="ime" id="ime">
+			<div class="ep" id="ep1"><img src="resources/error.png">Unesite validno ime!</div>
 			<br><br>
-			Prezime:<br>
-			<input required="" type="text" name="prezime">
+			Prezime:*<br>
+			<input type="text" name="prezime">
+			<div class="ep" id="ep2"><img src="resources/error.png">Unesite validno prezime!</div>
 			<br><br>
-			E-mail:<br>
-			<input type="email" name="mail">
+			E-mail:*<br>
+			<input id="mailtb" type="email" name="mail">
+			<div class="ep" id="ep3"><img src="resources/error.png">Unesite validnu e-mail adresu!</div>
 			<br>
-			<input type="checkbox" name="maillist">Želim biti na New Home mailing listi i dobijati obavještenja o novim i popularnim nekretninama!
+			<input id="cb" type="checkbox" disabled name="maillist">Želim biti na New Home mailing listi i dobijati obavještenja o novim i popularnim nekretninama!
 			<br><br>
 			Broj telefona:<br>
-			<input required="" type="tel" name="telefon">
+			<input type="tel" name="telefon">
+			<div class="ep" id="ep4"><img src="resources/error.png">Unesite validan broj telefona!</div>
 			<br><br>
 			Grad:<br>
-			<input list="gradovi">
+			<input list="gradovi" name="grad">
 				<datalist id="gradovi">
 					<option value="">Sarajevo</option>
 					<option value="">Banja Luka</option>
@@ -97,12 +101,14 @@
 					<option value="">Bihać</option>
 					<option value="">Trebinje</option>
 				</datalist>
+			<div class="ep" id="ep5"><img src="resources/error.png"></div>
 			<br><br>
 			Poruka:<br>
-			<textarea required="" name="poruka" rows="10" cols="70"></textarea>
+			<textarea name="poruka" rows="10" cols="70"></textarea>
+			<div class="ep" id="ep6"><img src="resources/error.png">Unesite poruku!</div>
 			<br><br>
-			<button type="submit">Pošalji</button>
-			<button type="reset">Poništi</button>
+			<button id="submit" type="submit">Pošalji</button>
+			<button id="reset" type="reset">Poništi</button>
 		</form>
 	</div>
 </div>
@@ -112,7 +118,8 @@
 	<p class="footer">demirovict@gmail.com</p>
 </footer>
 
-<script src="scripts.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/validation.js"></script>
 
 </body>
 
