@@ -13,7 +13,7 @@
 <body>
 <header>
 		<div id="logo">
-			<a href="index.html">
+			<a href="#">
 				<img class="logo" src="resources/logo.png" alt="Logo">
 			</a>
 		</div>
@@ -24,11 +24,11 @@
 
 		<nav>
 			<ul id="menu">
-				<li><a id="m1" href="index.html" class="active">Početna</a></li>
+				<li><a id="m1" href="#">Početna</a></li>
 				<li><a id="m2" href="javascript:void(0);">Nekretnine</a></li>
 				<li><a id="m3" href="#">Pretraga</a></li>
 				<li><a id="m4" href="javascript:void(0);">Kontakt</a></li>
-				<li><a id="m5" href="linkovi.html">Linkovi</a></li>
+				<li><a id="m5" href="#">Linkovi</a></li>
 			</ul>
 		</nav>
 </header>
@@ -52,8 +52,8 @@
 	</div>
 	<div class="menuList" id="sm4">
 		<ul class="subList">
-			<li onclick="klikni(this)"><a href="agenti.html" class="subItem">Agenti i poslovnice</a></li>
-			<li onclick="klikni(this)"><a href="kontakt.html" class="subItem">Kontakt forma</a></li>
+			<li id="m4-1"><a href="#" class="subItem">Agenti i poslovnice</a></li>
+			<li id="m4-2"><a href="#" class="subItem">Kontakt forma</a></li>
 		</ul>
 	</div>
 	<div class="menuList" id="sm5">
@@ -61,12 +61,12 @@
 	</div>
 </div>
 
-<div class="wrapper">
+<div class="wrapper" id="content">
 
 	<section>
 		<h2>O nama</h2>
 		<p>Agencija za nekretnine <i>New Home</i> specijalizirana je za posredovanje kod kupoprodaje i iznajmljivanje svih
-		 vrsta nekretnina. Agencija djeluje na području cijele BiH. Zaposleni <a href="agenti.html">agenti</a> su stručnjaci
+		 vrsta nekretnina. Agencija djeluje na području cijele BiH. Zaposleni <a id="agentiURL" href="#">agenti</a> su stručnjaci
 		 sa položenim ispitom za agente u posredovanju i prometu nekretninama. Naši glavni cilj je da Vi uz našu pomoć 
 		 nađete Vaš Novi Dom!</p>
 	</section>
@@ -115,6 +115,7 @@
 </footer>
 
 <script src="js/scripts.js"></script>
+<script src="js/transitions.js"></script>
 
 </body>
 

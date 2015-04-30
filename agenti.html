@@ -1,153 +1,75 @@
-<!DOCTYPE html>
-<html>
+<div class="content">
+	<h2>Agenti</h2>
+	<table id="agenti">
+		<tr>
+			<th>Ime i prezime</th>
+			<th>Broj telefona</th>
+			<th>Email adresa</th>
+		</tr>
+		<tr>
+			<td>Tarik Demirović</td>
+			<td>062/571-127</td>
+			<td>demirovict@newhome.ba</td>
+		</tr>
+		<tr>
+			<td>Zlatan Čilić</td>
+			<td>061/123-456</td>
+			<td>cilicz@newhome.ba</td>
+		</tr>
+		<tr>
+			<td>Lejla Agić</td>
+			<td>061/123-456</td>
+			<td>agicl@newhome.ba</td>
+		</tr>
+		<tr>
+			<td>Adnan Muslija</td>
+			<td>061/123-456</td>
+			<td>muslijaa@newhome.ba</td>
+		</tr>
+		<tr>
+			<td>Lejla Agić</td>
+			<td>061/123-456</td>
+			<td>agicl@newhome.ba</td>
+		</tr>
+	</table>
 
-<head>
-	<meta charset="UTF-8">
-	<title>New Home Agenti</title>
-	<link rel="stylesheet" href="styles.css">
-	<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-	<link rel="icon" type="image/png" href="resources/favicon.png">
-</head>
-
-<body>
-<header>
-		<div id="logo">
-			<a href="index.html">
-				<img class="logo" src="resources/logo.png" alt="Logo">
-			</a>
-		</div>
-		
-		<div id="header">
-			<h3 id="logonaslov">New Home Realestate</h3>
-		</div>
-
-		<nav>
-			<ul id="menu">
-				<li><a id="m1" href="index.html">Početna</a></li>
-				<li><a id="m2" href="javascript:void(0);">Nekretnine</a></li>
-				<li><a id="m3" href="#">Pretraga</a></li>
-				<li><a id="m4" href="javascript:void(0);" class="active">Kontakt</a></li>
-				<li><a id="m5" href="linkovi.html">Linkovi</a></li>
-			</ul>
-		</nav>
-</header>
-
-<div class="subMenus">
-	<div class="menuList" id="sm1">
-		<ul class="subList">
-		</ul>
-	</div>
-	<div class="menuList" id="sm2">
-		<ul class="subList">
-			<li onclick="klikni(this)"><a href="#" class="subItem">Stanovi</a></li>
-			<li onclick="klikni(this)"><a href="#" class="subItem">Kuće</a></li>
-			<li onclick="klikni(this)"><a href="#" class="subItem">Poslovni prostori</a></li>
-		</ul>
-	</div>
-	<div class="menuList" id="sm3">
-		<ul class="subList">
-
-		</ul>
-	</div>
-	<div class="menuList" id="sm4">
-		<ul class="subList">
-			<li onclick="klikni(this)"><a href="agenti.html" class="subItem">Agenti</a></li>
-			<li onclick="klikni(this)"><a href="kontakt.html" class="subItem">Kontakt forma</a></li>
-		</ul>
-	</div>
-	<div class="menuList" id="sm5">
-		
-	</div>
+	<h2>Poslovnice</h2>
+	<table id="poslovnice">
+		<tr>
+			<th>Grad</th>
+			<th>Adresa</th>
+			<th>Broj telefona</th>
+			<th>Email</th>
+		</tr>
+		<tr>
+			<td>Sarajevo I</td>
+			<td>Marcela Šnajdera 3</td>
+			<td>033/123-123</td>
+			<td>sarajevo1@newhome.ba</td>
+		</tr>
+		<tr>
+			<td>Sarajevo II</td>
+			<td>Zmaja od Bosne bb</td>
+			<td>033/123-123</td>
+			<td>sarajevo2@newhome.ba</td>
+		</tr>
+		<tr>
+			<td>Zenica</td>
+			<td>Muftije Šemsekadića 12</td>
+			<td>032/123-123</td>
+			<td>zenica@newhome.ba</td>
+		</tr>
+		<tr>
+			<td>Tuzla</td>
+			<td>Tuzlanska 3</td>
+			<td>061/123-123</td>
+			<td>tuzla@newhome.ba</td>
+		</tr>
+		<tr>
+			<td>Banja Luka</td>
+			<td>Banjalučka 3</td>
+			<td>061/123-123</td>
+			<td>banjaluka@newhome.ba</td>
+		</tr>
+	</table>
 </div>
-
-<div class="wrapper">
-
-	<div class="content">
-		<h2>Agenti</h2>
-		<table id="agenti">
-			<tr>
-				<th>Ime i prezime</th>
-				<th>Broj telefona</th>
-				<th>Email adresa</th>
-			</tr>
-			<tr>
-				<td>Tarik Demirović</td>
-				<td>062/571-127</td>
-				<td>demirovict@newhome.ba</td>
-			</tr>
-			<tr>
-				<td>Zlatan Čilić</td>
-				<td>061/123-456</td>
-				<td>cilicz@newhome.ba</td>
-			</tr>
-			<tr>
-				<td>Lejla Agić</td>
-				<td>061/123-456</td>
-				<td>agicl@newhome.ba</td>
-			</tr>
-			<tr>
-				<td>Adnan Muslija</td>
-				<td>061/123-456</td>
-				<td>muslijaa@newhome.ba</td>
-			</tr>
-			<tr>
-				<td>Lejla Agić</td>
-				<td>061/123-456</td>
-				<td>agicl@newhome.ba</td>
-			</tr>
-		</table>
-
-		<h2>Poslovnice</h2>
-		<table id="poslovnice">
-			<tr>
-				<th>Grad</th>
-				<th>Adresa</th>
-				<th>Broj telefona</th>
-				<th>Email</th>
-			</tr>
-			<tr>
-				<td>Sarajevo I</td>
-				<td>Marcela Šnajdera 3</td>
-				<td>033/123-123</td>
-				<td>sarajevo1@newhome.ba</td>
-			</tr>
-			<tr>
-				<td>Sarajevo II</td>
-				<td>Zmaja od Bosne bb</td>
-				<td>033/123-123</td>
-				<td>sarajevo2@newhome.ba</td>
-			</tr>
-			<tr>
-				<td>Zenica</td>
-				<td>Muftije Šemsekadića 12</td>
-				<td>032/123-123</td>
-				<td>zenica@newhome.ba</td>
-			</tr>
-			<tr>
-				<td>Tuzla</td>
-				<td>Tuzlanska 3</td>
-				<td>061/123-123</td>
-				<td>tuzla@newhome.ba</td>
-			</tr>
-			<tr>
-				<td>Banja Luka</td>
-				<td>Banjalučka 3</td>
-				<td>061/123-123</td>
-				<td>banjaluka@newhome.ba</td>
-			</tr>
-		</table>
-	</div>
-
-</div>
-
-<footer>
-	<p class="footer">Tarik Demirović</p>
-	<p class="footer">demirovict@gmail.com</p>
-</footer>
-
-<script src="js/scripts.js"></script>
-
-</body>
-
-</html>
