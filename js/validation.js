@@ -63,11 +63,11 @@ function validirajMail() {
 		forma.maillist.disabled = true;
 }
 
-var mailChanged = document.getElementById("mailtb");
+/*var mailChanged = document.getElementById("mailtb");
 mailChanged.addEventListener("change", validirajMail, false);
 
 var sabmitaj = document.getElementById("kf");
 sabmitaj.addEventListener("submit", function(evt){ validiraj(evt); }, false);
 
 var resetiraj = document.getElementById("reset");
-resetiraj.addEventListener("click", resetirajUnos, false);
+resetiraj.addEventListener("click", resetirajUnos, false);*/
