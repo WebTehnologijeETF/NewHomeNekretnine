@@ -6,6 +6,23 @@ function resetirajUnos(){
 	}
 }
 
+function submitaj(){
+	var forma = document.getElementById("kf");
+
+	submit_url = forma.action;
+
+	var content = new XMLHttpRequest();
+
+	content.onreadystatechange = function () {
+		if(content.readyState == 4 && content.status == 200) {
+			alert("Poruka je poslana!");
+		}
+	}
+
+	content.open("GET", submit_url, true);
+	content.send();
+}
+
 function validirajServis(grad, posBroj){
 	var content = new XMLHttpRequest();
 
@@ -16,7 +33,8 @@ function validirajServis(grad, posBroj){
 			var response = JSON.parse(content.responseText);
 			if(response.hasOwnProperty("ok"))
 			{
-				document.getElementById("kf").submit();
+				//document.getElementById("kf").submit();
+				submitaj();
 			}
 			else
 				document.getElementById("ep5").style.visibility = "visible";

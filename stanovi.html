@@ -1,0 +1,30 @@
+<section>
+	<h2>Stanovi</h2>
+	<h3>Upravljanje listom stanova</h3><br><br>
+
+	<form name="dodajStanForm" id="ds" action="#">
+		Naziv:<div class="ep" id="ep1"><img src="resources/error.png" alt="error">Unesite validan naziv!</div><br>
+		<input type="text" name="naziv" id="naz"><br>
+
+		Opis:<div class="ep" id="ep2"><img src="resources/error.png" alt="error">Unesite validnu poruku!</div><br>
+		<textarea name="opis" rows="10" cols="70"></textarea><br>
+
+		Url slike:<div class="ep" id="ep3"><img src="resources/error.png" alt="error">Unesite validan URL!</div><br>
+		<input type="text" name="slika" id="sli"><br>
+
+		Cijena:(KM)<div class="ep" id="ep4"><img src="resources/error.png" alt="error">Unesite validnu cijenu!</div><br>
+		<input type="text" name="cijena" id="cij"><br><br>
+
+		ID:<div class="ep" id="ep5"><img src="resources/error.png" alt="error">Unesite validan i postojeći ID!</div><br>
+		<input type="text" name="id_stana"><br>
+		<br>
+
+		<button type="button" name="dodaj" onclick="validirajFormuDodavanje()">Dodaj</button>
+		<button type="button" name="edituj" onclick="validirajFormuEditovanje()">Edituj</button>
+		<button type="button" name="obrisi" onclick="validirajFormuBrisanje()">Obriši</button>
+	</form>
+</section>
+
+<div class="content" id="stanovi" onload="dobaviStanove()">
+	
+</div>
