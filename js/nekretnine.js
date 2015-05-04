@@ -118,13 +118,13 @@ function validirajFormuDodavanje(){
 	var urlReg = /^[a-zšđčćž0-9._%+-]+\.[a-z]{1,3}$/i;
 	var numReg = /^[1-9]+[0-9]*$/i;
 
-	if (!textReg.test(forma.naziv.value))
+	if (forma.naziv.value != "")
 	{
 		document.getElementById("ep1").style.visibility = "visible";
 		valid = false;
 	}
 
-	if (!textReg.test(forma.opis.value))
+	if (forma.opis.value != "")
 	{
 		document.getElementById("ep2").style.visibility = "visible";
 		valid = false;
@@ -158,13 +158,13 @@ function validirajFormuEditovanje(){
 	var urlReg = /^[a-zšđčćž0-9._%+-]+\.[a-z]{1,3}$/i;
 	var numReg = /^[1-9]+[0-9]*$/i;
 
-	if (!textReg.test(forma.naziv.value))
+	if (forma.naziv.value != "")
 	{
 		document.getElementById("ep1").style.visibility = "visible";
 		valid = false;
 	}
 
-	if (!textReg.test(forma.opis.value))
+	if (forma.opis.value != "")
 	{
 		document.getElementById("ep2").style.visibility = "visible";
 		valid = false;
