@@ -6,7 +6,28 @@ function resetirajUnos(){
 	}
 }
 
-function validiraj(evt){
+function validirajServis(grad, posBroj){
+	var content = new XMLHttpRequest();
+
+	url = "http://zamger.etf.unsa.ba/wt/postanskiBroj.php?mjesto=" + grad + "&postanskiBroj=" + posBroj;
+
+	content.onreadystatechange = function () {
+		if(content.readyState == 4 && content.status == 200) {
+			var response = JSON.parse(content.responseText);
+			if(response.hasOwnProperty("ok"))
+			{
+				document.getElementById("kf").submit();
+			}
+			else
+				document.getElementById("ep5").style.visibility = "visible";
+		}
+	}
+
+	content.open("GET", url, true);
+	content.send();
+}
+
+function validiraj(){
 	var forma = document.getElementById("kf");
 	var valid = true;
 
@@ -15,6 +36,7 @@ function validiraj(evt){
 	var textReg = /^[a-zšđčćž]+$/i;
 	var emailReg = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
 	var telReg = /^\+{0,1}[0-9]+[\/-]{0,1}[0-9-]+$/;
+
 
 	if (!textReg.test(forma.ime.value))
 	{
@@ -48,10 +70,10 @@ function validiraj(evt){
 		valid = false;
 	}
 
-	if(!valid)
-		evt.preventDefault();
-
-	return valid;
+	if(valid)
+	{
+		validirajServis(forma.grad.value, forma.pbroj.value);
+	}
 }
 
 function validirajMail() {

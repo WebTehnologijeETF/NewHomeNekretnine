@@ -6,7 +6,7 @@
 
 <div class="content">
 	<h2>Kontaktirajte vlasnika stranice</h2>
-	<form name="kontaktForma" id="kf" action="#" onsubmit="validiraj(event)">
+	<form name="kontaktForma" id="kf" action="#">
 		Ime:*<br>
 		<input type="text" name="ime" id="ime">
 		<div class="ep" id="ep1"><img src="resources/error.png" alt="error">Unesite validno ime!</div>
@@ -36,13 +36,16 @@
 				<option value="">Bihać</option>
 				<option value="">Trebinje</option>
 			</datalist>
-		<div class="ep" id="ep5"><img src="resources/error.png" alt="error"></div>
+		<br><br>
+		Poštanski broj:<br>
+		<input type="text" name="pbroj">	
+		<div class="ep" id="ep5"><img src="resources/error.png" alt="error">Grad i poštanski broj moraju odgovarati jedan drugom!</div>
 		<br><br>
 		Poruka:*<br>
 		<textarea name="poruka" rows="10" cols="70"></textarea>
 		<div class="ep" id="ep6"><img src="resources/error.png" alt="error">Unesite poruku!</div>
 		<br><br>
-		<button id="submit" type="submit">Pošalji</button>
+		<button id="submit_but" type="button" onclick="validiraj()">Pošalji</button>
 		<button id="reset" type="reset">Poništi</button>
 	</form>
 </div>

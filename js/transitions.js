@@ -11,7 +11,6 @@ function getContent(url){
 	content.send();
 }
 
-
 document.getElementById("agentiURL").addEventListener("click", function(){ getContent("agenti.html"); }, false);
 document.getElementById("logo").addEventListener("click", function(){ getContent("pocetna.html"); }, false);
 document.getElementById("m1").addEventListener("click", function(){ getContent("pocetna.html"); }, false);
