@@ -295,3 +295,12 @@ div.ep {
 	font-family: 'Dosis', sans-serif;
 	font-size: small;
 }
+
+p {
+	font-family: 'Dosis', sans-serif;
+}
+
+p.pregled {
+	font-family: 'Dosis', sans-serif;
+	font-weight: bold;
+}

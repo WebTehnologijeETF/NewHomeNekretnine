@@ -6,7 +6,7 @@
 
 <div class="content">
 	<h2>Kontaktirajte vlasnika stranice</h2>
-	<form name="kontaktForma" id="kf" action="kontakt_submit.php" onsubmit="return validiraj();">
+	<form name="kontaktForma" id="kf" action="kontakt_submit.php" method="POST" onsubmit="return validiraj();">
 		Ime:*<br>
 		<input type="text" name="ime" id="ime">
 		<div class="ep" id="ep1"><img src="resources/error.png" alt="error">Unesite validno ime!</div>
@@ -39,7 +39,7 @@
 		<br><br>
 		Poštanski broj:*<br>
 		<input id="pb" type="text" name="pbroj" onblur="validirajServis()">	
-		<div class="ep" id="ep5"><img src="resources/error.png" alt="error">Grad i poštanski broj moraju odgovarati jedan drugom!</div>
+		<div class="ep" id="ep5"><img src="resources/error.png" alt="error">Grad i poštanski broj moraju odgovarati jedan drugom i moraju biti validni!</div>
 		<br><br>
 		Poruka:*<br>
 		<textarea name="poruka" rows="10" cols="70"></textarea>
