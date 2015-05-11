@@ -23,21 +23,26 @@ function submitaj(){
 	content.send();
 }
 
-function validirajServis(grad, posBroj){
-	var content = new XMLHttpRequest();
+function validirajServis(){
+	grad = document.getElementById("gr").value;
+	posBroj = document.getElementById("pb").value;
 
+	var content = new XMLHttpRequest();
 	url = "http://zamger.etf.unsa.ba/wt/postanskiBroj.php?mjesto=" + grad + "&postanskiBroj=" + posBroj;
 
 	content.onreadystatechange = function () {
 		if(content.readyState == 4 && content.status == 200) {
 			var response = JSON.parse(content.responseText);
-			if(response.hasOwnProperty("ok"))
+			if(!response.hasOwnProperty("ok"))
 			{
-				//document.getElementById("kf").submit();
-				submitaj();
+				document.getElementById("ep5").style.visibility = "visible";
+				document.getElementById("submit_but").disabled = true;
 			}
 			else
-				document.getElementById("ep5").style.visibility = "visible";
+			{
+				document.getElementById("ep5").style.visibility = "hidden";
+				document.getElementById("submit_but").disabled = false;
+			}
 		}
 	}
 
@@ -88,10 +93,7 @@ function validiraj(){
 		valid = false;
 	}
 
-	if(valid)
-	{
-		validirajServis(forma.grad.value, forma.pbroj.value);
-	}
+	return valid;
 }
 
 function validirajMail() {

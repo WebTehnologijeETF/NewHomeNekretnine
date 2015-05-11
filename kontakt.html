@@ -6,7 +6,7 @@
 
 <div class="content">
 	<h2>Kontaktirajte vlasnika stranice</h2>
-	<form name="kontaktForma" id="kf" action="#">
+	<form name="kontaktForma" id="kf" action="kontakt_submit.php" onsubmit="return validiraj();">
 		Ime:*<br>
 		<input type="text" name="ime" id="ime">
 		<div class="ep" id="ep1"><img src="resources/error.png" alt="error">Unesite validno ime!</div>
@@ -26,7 +26,7 @@
 		<div class="ep" id="ep4"><img src="resources/error.png" alt="error">Unesite validan broj telefona!</div>
 		<br><br>
 		Grad:*<br>
-		<input list="gradovi" name="grad">
+		<input id="gr" list="gradovi" name="grad" onblur="validirajServis()">
 			<datalist id="gradovi">
 				<option value="">Sarajevo</option>
 				<option value="">Banja Luka</option>
@@ -38,14 +38,14 @@
 			</datalist>
 		<br><br>
 		Poštanski broj:*<br>
-		<input type="text" name="pbroj">	
+		<input id="pb" type="text" name="pbroj" onblur="validirajServis()">	
 		<div class="ep" id="ep5"><img src="resources/error.png" alt="error">Grad i poštanski broj moraju odgovarati jedan drugom!</div>
 		<br><br>
 		Poruka:*<br>
 		<textarea name="poruka" rows="10" cols="70"></textarea>
 		<div class="ep" id="ep6"><img src="resources/error.png" alt="error">Unesite poruku!</div>
 		<br><br>
-		<button id="submit_but" type="button" onclick="validiraj()">Pošalji</button>
+		<button id="submit_but" type="submit">Pošalji</button>
 		<button id="reset" type="reset">Poništi</button>
 	</form>
 </div>
