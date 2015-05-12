@@ -66,6 +66,8 @@
 <div class="content">
 
 <?php
+session_start();
+
 //uredjuje unos (xss protekcija)
 function dajUredno($unos)
 {
@@ -117,6 +119,15 @@ if($poruka === "")
 if(!$validno)
 	print "<h2>Unos nije validan!</h2>";
 else{
+	$_SESSION['ime'] = $ime;
+	$_SESSION['prezime'] = $prezime;
+	$_SESSION['mail'] = $mail;
+	$_SESSION['mlist'] = $_POST['maillist'];
+	if($telefon != "") $_SESSION['telefon'] = $telefon;
+	$_SESSION['grad'] = $grad;
+	$_SESSION['pbroj'] = $pbroj;
+	$_SESSION['poruka'] = $poruka;
+
 	print "<h2>Provjerite da li ste ispravno popunili kontakt formu</h2>";
 	print "<p>Ime i prezime: <p class='pregled'>".$ime." ".$prezime."</p></p><br>";
 	print "<p>E-mail: <p class='pregled'>".$mail."</p></p><br>";
@@ -125,13 +136,10 @@ else{
 	print "<p>Grad i poštanski broj: <p class='pregled'>".$grad.", ".$pbroj."</p></p><br>";
 	print "<p>Poruka: <p class='pregled'>".$poruka."</p></p><br>";
 	print "<p class='pregled'>Da li ste sigurni da želite poslati ove podatke?</p><br>";
-	print "<form method='POST' action=''><button name='send' id='send_mail' type='submit'>Siguran sam</button></form><br><br>";
+	print "<form method='POST' action='posalji.php'><button name='send' id='send_mail' type='submit'>Siguran sam</button></form><br><br>";
 
 	print "<h2>Ako ste pogrešno popunili formu, možete ispod prepraviti unesene podatke</h2>";
 }
-
-if (isset($_POST['send']))
-	print "POSLO EMAJL";
 
 //ovdje prepraviti kod za slanje emaila
 ?>
