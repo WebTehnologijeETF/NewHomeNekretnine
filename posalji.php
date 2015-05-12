@@ -84,7 +84,7 @@ $grad = dajUredno($_SESSION['grad']);
 $pbroj = dajUredno($_SESSION['pbroj']);
 $poruka = dajUredno($_SESSION['poruka']);
 $to = "tdemirovic1@etf.unsa.ba";
-$cc = "tdemirovic1@etf.unsa.ba";
+$cc = "iprazina1@etf.unsa.ba";
 
 $naslov = "Poruka sa kontakt forme - ".$ime." ".$prezime;
 $header = "From: ".$mail."\r\n"."Cc: ".$cc."\r\n"."Reply-To: ".$mail."\r\n"."Content-Type: text/html; charset=\"UTF-8\""."\r\n";
