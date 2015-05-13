@@ -66,6 +66,8 @@
 <div class="content">
 
 <?php
+require 'sendgrid-php/sendgrid-php.php';
+
 session_start();
 
 function dajUredno($unos)
@@ -94,9 +96,29 @@ $sadrzaj .= "Grad: ".$grad." ".$pbroj."\r\n";
 $sadrzaj .= "Kontakt: ".$mail.", ".$telefon."\r\n"."\r\n";
 $sadrzaj .= "Poruka:"."\r\n".$poruka;
 
-if(mail($to, $naslov, $sadrzaj, $header))
-print "<br><h2>Zahvaljujemo se što ste nas kontaktirali</h2><br>";
-print "<a href='index.html' id='back'>Vrati se na početnu</a>";
+$service_plan_id = "sendgrid_c0df1"; // your OpenShift Service Plan ID
+$account_info = json_decode(getenv($service_plan_id), true);
+
+$sendgrid = new SendGrid($account_info['username'], $account_info['password']);
+$email = new SendGrid\Email();
+
+$email->addTo($to)
+	  ->addCc($cc)
+	  ->setReplyTo($mail)
+      ->setFrom("kontakt@newhome.com")
+      ->setSubject($naslov)
+      ->setText($sadrzaj);
+
+try {
+    $sendgrid->send($email);
+    print "<br><h2>Zahvaljujemo se što ste nas kontaktirali</h2><br>";
+	print "<a href='index.html' id='back'>Vrati se na početnu</a>";
+} catch(\SendGrid\Exception $e) {
+    echo $e->getCode();
+    foreach($e->getErrors() as $er) {
+        echo $er;
+    }
+}
 ?>
 
 </div>
