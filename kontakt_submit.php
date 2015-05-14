@@ -10,7 +10,7 @@
 	<link rel="icon" type="image/png" href="resources/favicon.png">
 </head>
 
-<body>
+<body id="bod">
 <header>
 		<div id="logo">
 			<a href="#">
