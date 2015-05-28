@@ -9,13 +9,9 @@ function dajUredno($unos)
 	return $unos;
 }
 
-function crtajFormu(){
-
-}
-
 if(isset($_SESSION['username'])){
 	$username = $_SESSION['username'];
-	print "<h2>Već ste prijavljeni - odjavite se ili nastavite ka Admin-panelu</h2>";
+	print "Već ste prijavljeni - odjavite se ili nastavite ka Admin-panelu";
 }
 else if (isset($_POST['username'])) {
 	$username = dajUredno($_POST['username']);

@@ -111,7 +111,8 @@ function login(){
 			if(loginReq.responseText == "Greška!")
 				document.getElementById('ep2_login').style.visibility = "visible";
 				else {
-					getContent("panel.php");
+					if(loginReq.responseText != "Već ste prijavljeni - odjavite se ili nastavite ka Admin-panelu")
+						getContent("panel.php");
 					alert(loginReq.responseText);
 				}
 		}
@@ -120,6 +121,20 @@ function login(){
 	loginReq.open("POST", "login.php", true);
 	loginReq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	loginReq.send("username=" + user + "&pw=" + pw);
+}
+
+function logout(){
+	var loginReq = new XMLHttpRequest();
+
+	loginReq.onreadystatechange = function () {
+		if(loginReq.readyState == 4 && loginReq.status == 200) {
+			alert('Uspješno ste odjavljeni!');
+			getNews();
+		}
+	}
+
+	loginReq.open("POST", "logout.php", true);
+	loginReq.send();
 }
 
 function dodajKorisnika() {
@@ -168,6 +183,25 @@ function dodajKorisnika() {
 	}
 }
 
+function obrisiKorisnika(){
+	var forma = document.getElementById('kor_edit');
+	var username = forma.korisnik.value;
+
+	var brisi = new XMLHttpRequest();
+
+		brisi.onreadystatechange = function () {
+			if(brisi.readyState == 4 && brisi.status == 200) {
+				alert(brisi.responseText);
+			}
+		}
+
+		brisi.open("POST", "brisi.php", true);
+		brisi.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		brisi.send("username=" + username);
+	}
+
+}
+
 document.getElementById("bod").addEventListener("load", getNews(), false);
 document.getElementById("logo").addEventListener("click", function(){ getNews(); }, false);
 document.getElementById("m1").addEventListener("click", function(){ getNews(); }, false);
@@ -177,5 +211,5 @@ document.getElementById("m2-3").addEventListener("click", function(){ getNekretn
 document.getElementById("m4-1").addEventListener("click", function(){ getContent("agenti.html"); }, false);
 document.getElementById("m4-2").addEventListener("click", function(){ getContent("kontakt.html"); }, false);
 document.getElementById("m5").addEventListener("click", function(){ getContent("linkovi.html"); }, false);
-document.getElementById("m6").addEventListener("click", function(){ getContent("login.html"); }, false);
+document.getElementById("m6").addEventListener("click", function(){ getContent("login_form.php"); }, false);
 document.getElementById("m7").addEventListener("click", function(){ getContent("panel.php"); }, false);
