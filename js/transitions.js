@@ -26,7 +26,7 @@ function getNews(){
 	news.send();
 }
 
-function getDetails(path){
+function getDetails(id){
 	var details = new XMLHttpRequest();
 
 	details.onreadystatechange = function () {
@@ -35,8 +35,56 @@ function getDetails(path){
 		}
 	}
 
-	details.open("GET", "detalji.php?novost=" + path, true);
+	details.open("GET", "detalji.php?novost=" + id, true);
 	details.send();
+}
+
+function sendComment(id){
+	var forma = document.getElementById("komf");
+
+	var ime = forma.ime.value;
+	var mail = forma.mail.value;
+	var komentar = forma.poruka.value;
+
+	var textReg = /^[a-zšđčćž ]+$/i;
+	var emailReg = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
+
+	var valid = true;
+
+	document.getElementById("ep1_kom").style.visibility = "hidden";
+	document.getElementById("ep3_kom").style.visibility = "hidden";
+	document.getElementById("ep6_kom").style.visibility = "hidden";
+
+	if (!textReg.test(ime))
+	{
+		document.getElementById("ep1_kom").style.visibility = "visible";
+		valid = false;
+	}
+
+	if (mail != "")
+		if (!emailReg.test(mail))
+		{
+			document.getElementById("ep3_kom").style.visibility = "visible";
+			valid = false;
+		}
+
+	if (komentar == "")
+	{
+		document.getElementById("ep6_kom").style.visibility = "visible";
+		valid = false;
+	}
+
+	if(valid){
+		var komentarisi = new XMLHttpRequest();
+		komentarisi.onreadystatechange = function () {
+			if(komentarisi.readyState == 4 && komentarisi.status == 200) {
+				getDetails(id);
+			}
+		}
+
+		komentarisi.open("GET", "komentar.php?ime=" + ime + "&mail=" + mail + "&komentar=" + komentar + "&id=" + id, true);
+		komentarisi.send();
+	}
 }
 
 document.getElementById("bod").addEventListener("load", getNews(), false);

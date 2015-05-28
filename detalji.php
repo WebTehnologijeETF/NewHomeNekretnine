@@ -1,65 +1,59 @@
 <?php
 print "<div class='content'><h2>Popularne nekretnine</h2>";
 
-$path = $_GET['novost'];
+$id = $_GET['novost'];
 
-function dajUredno($unos)
-{
-	$unos = trim($unos);
-	$unos = stripslashes($unos);
-	$unos = htmlspecialchars($unos);
-	return $unos;
-}
+$host = "localhost";
+$dbconnection = new PDO("mysql:dbname=newhomedb;host=".$host.";charset=utf8", "newhomeuser", "vatoN1");
+$upit = $dbconnection->prepare("SELECT id, grad, adresa, naslov, opis, tekst, agent, slika, UNIX_TIMESTAMP(vrijeme) vr FROM nekretnina WHERE id=?");
+$upit->bindParam(1, $id);
 
-$novost = file($path);
+if(!$upit->execute())
+    print "<h3>".$upit->errorInfo()."</h3>";
 
-$prva = explode(" ",trim($novost[0]));
-$datum = dajUredno($prva[0]);
-$vrijeme = dajUredno($prva[1]);
-
-//druga linija
-$ime = dajUredno($novost[1]);
-
-//treća
-$naslov = dajUredno($novost[2]);
-
-//četvrta
-$slika = dajUredno($novost[3]);
-
-//peta
-$otekst = "";
-$j = 4;
-if($novost[4] == "")
-	return;
-
-while($j < count($novost)){
-	$otekst .= $novost[$j];
-	$j++;
-	if($novost[$j] == "--\n")
-		break;
-}
-
-$otekst = dajUredno($otekst);
-
-$j++;
-$tekst = "";
-
-while($j < count($novost)){
-	$tekst .= $novost[$j];
-	$j++;
-}
-
-$tekst = dajUredno($tekst);
+$nekretnine = $upit->fetchAll();
+$nove = $nekretnine[0];
 
 print "<div class='nekretnina'>
-		<img class='nekretnina' src='".$slika."' alt='Nekretnina'>
-		<h3 class='nekretnina'>".ucfirst(strtolower($naslov))."</h3>
-		<p class='nekretnina'>".$tekst." </p>
-		<p class='detalji'>Datum objave: ".$datum." ".$vrijeme."<br>Agent: ".$ime."</p>
-	</div><br><br><a id='bek' onclick='getNews()' href='#'>Nazad na početnu...</a>";
+<img class='nekretnina' src='".$nove['slika']."' alt='Nekretnina'>
+<h3 class='nekretnina'>".ucfirst(strtolower($nove['naslov']))."</h3>
+<p class='detalji'>Grad: ".$nove['grad']."<br>Adresa: ".$nove['adresa']."</p>";
+if(is_null($nove['tekst'])) print "<p class='nekretnina'>".$nove['opis']."</p>";
+else print "<p class='nekretnina'>".$nove['tekst']."</p>";
+print "<p class='detalji'>Datum objave: ".date("d.m.Y. (h:i)", $nove['vr'])."<br>Agent: ".$nove['agent']."</p>
+</div>";
 
-print "</div>";
+$upit2 = $dbconnection->prepare("SELECT id, vijest, autor, mail, tekst, UNIX_TIMESTAMP(vrijeme) vr FROM komentar WHERE vijest=?");
+$upit2->bindParam(1, $id);
 
-if($j == count($novost))
-		return;
+if(!$upit2->execute())
+    print "<h3>".$upit2->errorInfo()."</h3>";
+
+$komentari = $upit2->fetchAll();
+
+foreach ($komentari as $komentar) {
+	print "<div class='komentar1'>
+	<h3 class='nekretnina'>".$komentar['autor']."</h3>";
+	if(!is_null($komentar['mail'])) print "<p class='detalji'>".$komentar['mail']."</p>";
+	print "<p class='detalji'>".$komentar['tekst']."</p>
+	<p class='detalji'>".date("d.m.Y. (h:i)", $komentar['vr'])."</p>
+	</div>";
+}
+
+print "<div class='komentar2'>
+		<h3 class='nekretnina'>Postavite pitanje ^-^</h3>
+		<form name='komentarforma' id='komf'>
+			<br>Ime:*<br>
+			<input type='text' name='ime' id='ime_kom'>
+			<div class='ep' id='ep1_kom'><img src='resources/error.png' alt='error'>Unesite validno ime!</div><br><br>
+			E-mail:<br>
+			<input id='mailtb_kom' type='email' name='mail'>
+			<div class='ep' id='ep3_kom'><img src='resources/error.png' alt='error'>Unesite validan mail!</div><br><br>
+			Poruka:*<br>
+			<textarea id='kom' name='poruka' rows='3' cols='30'></textarea>
+			<div class='ep' id='ep6_kom'><img src='resources/error.png' alt='error'>Unesite poruku!</div><br><br>
+			<button id='koment' type='button' onclick=\"sendComment('".$id."')\">Pošalji</button>
+		</form>
+	</div>"
+
 ?>

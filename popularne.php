@@ -13,96 +13,36 @@ print "<section>
 	 vrsta nekretnina. Agencija djeluje na području cijele BiH. Zaposleni agenti su stručnjaci
 	 sa položenim ispitom za agente u posredovanju i prometu nekretninama. Naši glavni cilj je da Vi uz našu pomoć 
 	 nađete Vaš Novi Dom!</p>
-</section><div class='content'><h2>Popularne nekretnine</h2>";
+</section><div class='content'><h2>Nove nekretnine</h2>";
+$host = "localhost";
+$dbconnection = new PDO("mysql:dbname=newhomedb;host=".$host.";charset=utf8", "newhomeuser", "vatoN1");
 
-$dir = 'popNekretnine';
+$upit = $dbconnection->prepare("SELECT id, grad, adresa, naslov, opis, tekst, agent, slika, UNIX_TIMESTAMP(vrijeme) vr FROM nekretnina ORDER BY vrijeme DESC");
 
-foreach (scandir($dir) as $file) {
-    if ('.' === $file) continue;
-    if ('..' === $file) continue;
+if(!$upit->execute())
+    print "<h3>".$upit->errorInfo()."</h3>";
 
-    $path = "popNekretnine/".$file;
-    $novost = file($path);
+$nekretnine = $upit->fetchAll();
 
-    //regex za validaciju
-    $dateReg = "/^[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{4}\.$/i";
-    $timeReg = "/^[0-9]{2}\:[0-9]{2}\:[0-9]{2}$/i";
-    $textReg = "/^[a-zšđčćž ]+$/i";
-    $upperReg = "/^[A-ZŠĐČĆŽ ]+$/";
+$upit2 = $dbconnection->prepare("SELECT COUNT(*) as broj FROM komentar WHERE vijest=?");
 
-    $valid = true;
-    
-    //prva linija
-    $prva = explode(" ",trim($novost[0]));
-    if(!preg_match($dateReg, $prva[0]))
-    	continue;
-
-    if(!preg_match($timeReg, $prva[1]))
-    	continue;
-
-    $datum = dajUredno($prva[0]);
-    $vrijeme = dajUredno($prva[1]);
-
-    //druga linija
-    $ime = dajUredno($novost[1]);
-    if(!preg_match($textReg, $ime))
-    	continue;
-
-    //treća
-    $naslov = dajUredno($novost[2]);
-    if(!preg_match($upperReg, $naslov))
-    	continue;
-
-    //četvrta
-    $slika = dajUredno($novost[3]);
-
-    //peta
-    $otekst = "";
-    $j = 4;
-    if($novost[4] == "")
-    	continue;
-
-   while($j < count($novost)){
-    	$otekst .= $novost[$j];
-    	$j++;
-    	if($novost[$j] == "--\n")
-    		break;
-    }
-
-    $otekst = dajUredno($otekst);
-
-
-    if($j == count($novost)){
-		print "<div class='nekretnina'>
-		<img class='nekretnina' src='".$slika."' alt='Nekretnina'>
-		<h3 class='nekretnina'>".ucfirst(strtolower($naslov))."</h3>
-		<p class='nekretnina'>".$otekst."</p>
-		<p class='detalji'>Datum objave: ".$datum." ".$vrijeme."<br>Agent: ".$ime."</p>
-	</div>";
-	continue;
-    }
-    else{
-		print "<div class='nekretnina'>
-		<img class='nekretnina' src='".$slika."' alt='Nekretnina'>
-		<h3 class='nekretnina'>".ucfirst(strtolower($naslov))."</h3>
-		<p class='nekretnina'>".$otekst." <a onclick=\"getDetails('".$path."')\" href='#'>Detalji...</a></p>
-		<p class='detalji'>Datum objave: ".$datum." ".$vrijeme."<br>Agent: ".$ime."</p>
-	</div>";
-    }
-
-	$j++;
-	$tekst = "";
-
-	while($j < count($novost)){
-    	$tekst .= $novost[$j];
-    	$j++;
-    }
-
-    $tekst = dajUredno($tekst);
-
-    if($j == count($novost))
-    		continue;
+foreach ($nekretnine as $nove) {
+    $upit2->bindParam(1, $nove['id']);
+    if(!$upit2->execute())
+        print "<h3>".$upit->errorInfo()."</h3>";
+    $broj_komentara = $upit2->fetchColumn();
+   
+    print "<div class='nekretnina'>
+    <img class='nekretnina' src='".$nove['slika']."' alt='Nekretnina'>
+    <h3 class='nekretnina'>".ucfirst(strtolower($nove['naslov']))."</h3>
+    <p class='detalji'>Grad: ".$nove['grad']."<br>Adresa: ".$nove['adresa']."</p>
+    <p class='nekretnina'>".$nove['opis'];
+    if(!is_null($nove['tekst'])) print "<br> <a onclick=\"getDetails('".$nove['id']."')\" href='#'>Detalji...</a>";
+    print "<br> <a onclick=\"getDetails('".$nove['id']."')\" href='#'>Pitanja (".$broj_komentara.")</a></p>";
+    print "<p class='detalji'>Datum objave: ".date("d.m.Y. (h:i)", $nove['vr'])."<br>Agent: ".$nove['agent']."</p>
+    </div>";
 }
+
 print "</div>";
 
 ?>

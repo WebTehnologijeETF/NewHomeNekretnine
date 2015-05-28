@@ -179,6 +179,39 @@ div.nekretnina {
 	border-radius: 12px;
 }
 
+div.komentar1 {
+	overflow: auto;
+	float:right;
+	width: 50%;
+	top: 5px;
+	padding: 15px;
+	background-color: SteelBlue;
+	color: white;
+	border: solid 5px white;
+	border-radius: 35px;
+}
+
+div.komentar2 {
+	overflow: auto;
+	float:left;
+	width: 50%;
+	top: 5px;
+	padding: 15px;
+	background-color: SteelBlue;
+	color: white;
+	border: solid 5px white;
+	border-radius: 35px;
+}
+
+form#komf {
+	display: inline-block;
+	float:left;
+}
+
+textarea {
+  resize: vertical;
+}
+
 img.nekretnina {
 	display: inline-block;
 	float: right;
