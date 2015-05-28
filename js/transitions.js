@@ -189,16 +189,17 @@ function obrisiKorisnika(){
 
 	var brisi = new XMLHttpRequest();
 
-		brisi.onreadystatechange = function () {
-			if(brisi.readyState == 4 && brisi.status == 200) {
-				alert(brisi.responseText);
-			}
+	brisi.onreadystatechange = function () {
+		if(brisi.readyState == 4 && brisi.status == 200) {
+			alert(brisi.responseText);
+			var x = document.getElementById("select");
+    		x.remove(x.selectedIndex);
 		}
-
-		brisi.open("POST", "brisi.php", true);
-		brisi.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		brisi.send("username=" + username);
 	}
+
+	brisi.open("POST", "brisi.php", true);
+	brisi.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	brisi.send("username=" + username);
 
 }
 

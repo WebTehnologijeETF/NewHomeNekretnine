@@ -15,7 +15,7 @@ else {
 			<input type='text' name='uname' id='unameid'>
 			<br><br>
 			Šifra:<br>
-			<input type='text' name='sifra' id='sifraid'>
+			<input type='password' name='sifra' id='sifraid'>
 			<div class='ep' id='ep2_login'><img src='resources/error.png' alt='error'>Pogrešno korisničko ime ili šifra!</div>
 			<br><br>
 			<button id='submit_but' type='button' onclick='login()''>Login</button>

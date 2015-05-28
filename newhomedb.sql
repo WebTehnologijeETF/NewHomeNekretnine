@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 28, 2015 at 11:58 PM
+-- Generation Time: May 29, 2015 at 01:45 AM
 -- Server version: 5.6.24-0ubuntu2
 -- PHP Version: 5.6.4-4ubuntu6
 
@@ -65,7 +65,9 @@ CREATE TABLE IF NOT EXISTS `korisnik` (
 --
 
 INSERT INTO `korisnik` (`username`, `mail`, `password`) VALUES
-('korisnik', 'mail@mail.ba', '923352284767451ab158a387a283df26');
+('admin', 'demirovict@gmail.com', '21232f297a57a5a743894a0e4a801fc3'),
+('korisnik', 'mail@mail.ba', '923352284767451ab158a387a283df26'),
+('noviuser', 'user@mail.ba', '923352284767451ab158a387a283df26');
 
 -- --------------------------------------------------------
 
