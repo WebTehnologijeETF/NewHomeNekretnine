@@ -10,7 +10,7 @@
 	<link rel="icon" type="image/png" href="resources/favicon.png">
 </head>
 
-<body id="bod">
+<body>
 <header>
 		<div id="logo">
 			<a href="#">
@@ -29,6 +29,8 @@
 				<li><a id="m3" href="#">Pretraga</a></li>
 				<li><a id="m4" href="javascript:void(0);">Kontakt</a></li>
 				<li><a id="m5" href="#">Linkovi</a></li>
+				<li><a id="m6" href="#">Login</a></li>
+				<li><a id="m7" href="#">Admin-panel</a></li>
 			</ul>
 		</nav>
 </header>

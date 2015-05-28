@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 28, 2015 at 03:08 PM
+-- Generation Time: May 28, 2015 at 11:58 PM
 -- Server version: 5.6.24-0ubuntu2
 -- PHP Version: 5.6.4-4ubuntu6
 
@@ -51,6 +51,25 @@ INSERT INTO `komentar` (`id`, `vijest`, `autor`, `mail`, `tekst`, `vrijeme`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `korisnik`
+--
+
+CREATE TABLE IF NOT EXISTS `korisnik` (
+  `username` varchar(20) COLLATE utf8_slovenian_ci NOT NULL,
+  `mail` varchar(30) COLLATE utf8_slovenian_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_slovenian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+
+--
+-- Dumping data for table `korisnik`
+--
+
+INSERT INTO `korisnik` (`username`, `mail`, `password`) VALUES
+('korisnik', 'mail@mail.ba', '923352284767451ab158a387a283df26');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `nekretnina`
 --
 
@@ -84,6 +103,12 @@ INSERT INTO `nekretnina` (`id`, `vrsta`, `grad`, `adresa`, `naslov`, `opis`, `te
 --
 ALTER TABLE `komentar`
  ADD PRIMARY KEY (`id`), ADD KEY `vijest` (`vijest`);
+
+--
+-- Indexes for table `korisnik`
+--
+ALTER TABLE `korisnik`
+ ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `nekretnina`

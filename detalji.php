@@ -1,7 +1,15 @@
 <?php
 print "<div class='content'><h2>Popularne nekretnine</h2>";
 
-$id = $_GET['novost'];
+function dajUredno($unos)
+{
+	$unos = trim($unos);
+	$unos = stripslashes($unos);
+	$unos = htmlspecialchars($unos);
+	return $unos;
+}
+
+$id = dajUredno($_GET['novost']);
 
 $host = "localhost";
 $dbconnection = new PDO("mysql:dbname=newhomedb;host=".$host.";charset=utf8", "newhomeuser", "vatoN1");
@@ -34,7 +42,7 @@ $komentari = $upit2->fetchAll();
 foreach ($komentari as $komentar) {
 	print "<div class='komentar1'>
 	<h3 class='nekretnina'>".$komentar['autor']."</h3>";
-	if(!is_null($komentar['mail'])) print "<p class='detalji'>".$komentar['mail']."</p>";
+	if(!is_null($komentar['mail'])) print "<p class='detalji'><a href='mailto:".$komentar['mail']."'>".$komentar['mail']."</a></p>";
 	print "<p class='detalji'>".$komentar['tekst']."</p>
 	<p class='detalji'>".date("d.m.Y. (h:i)", $komentar['vr'])."</p>
 	</div>";

@@ -4,13 +4,24 @@ function getContent(url){
 	content.onreadystatechange = function () {
 		if(content.readyState == 4 && content.status == 200) {
 			document.getElementById("content").innerHTML = content.responseText;
-			if(url == "stanovi.html")
-				dobaviStanove();
 		}
 	}
 
 	content.open("GET", url, true);
 	content.send();
+}
+
+function getNekretnine(vrsta) {
+	var nekretnine = new XMLHttpRequest();
+
+	nekretnine.onreadystatechange = function () {
+		if(nekretnine.readyState == 4 && nekretnine.status == 200) {
+			document.getElementById("content").innerHTML = nekretnine.responseText;
+		}
+	}
+
+	nekretnine.open("GET", "nekretnine.php?vrsta=" + vrsta, true);
+	nekretnine.send();
 }
 
 function getNews(){
@@ -87,12 +98,84 @@ function sendComment(id){
 	}
 }
 
+function login(){
+	var forma = document.getElementById('lf');
+
+	var user = forma.uname.value;
+	var pw = forma.sifra.value;
+
+	var loginReq = new XMLHttpRequest();
+
+	loginReq.onreadystatechange = function () {
+		if(loginReq.readyState == 4 && loginReq.status == 200) {
+			if(loginReq.responseText == "Greška!")
+				document.getElementById('ep2_login').style.visibility = "visible";
+				else {
+					getContent("panel.php");
+					alert(loginReq.responseText);
+				}
+		}
+	}
+
+	loginReq.open("POST", "login.php", true);
+	loginReq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	loginReq.send("username=" + user + "&pw=" + pw);
+}
+
+function dodajKorisnika() {
+	var forma = document.getElementById("korf");
+
+	var userReg = /^[a-zšđčćž_0-9]+$/i;
+	var emailReg = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
+	var pwReg = /^[a-zšđčćž_0-9]{5,}$/i;
+	var valid = true;
+	document.getElementById("ep1_korisnici").style.visibility = "hidden";
+
+	if (!userReg.test(forma.uname.value))
+	{
+		document.getElementById("ep1_korisnici").style.visibility = "visible";
+		valid = false;
+	}
+
+	if (!emailReg.test(forma.mail.value) || forma.mail.value == "")
+	{
+		document.getElementById("ep1_korisnici").style.visibility = "visible";
+		valid = false;
+	}
+
+	if (!pwReg.test(forma.sifra.value) || forma.sifra.value == "")
+	{
+		document.getElementById("ep1_korisnici").style.visibility = "visible";
+		valid = false;
+	}
+
+	if(valid)
+	{
+		user = forma.uname.value;
+		pw = forma.sifra.value;
+		mail = forma.mail.value;
+		var dodaj = new XMLHttpRequest();
+
+		dodaj.onreadystatechange = function () {
+			if(dodaj.readyState == 4 && dodaj.status == 200) {
+				alert(dodaj.responseText);
+			}
+		}
+
+		dodaj.open("POST", "novi_korisnik.php", true);
+		dodaj.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		dodaj.send("username=" + user + "&pw=" + pw + "&mail=" + mail);
+	}
+}
+
 document.getElementById("bod").addEventListener("load", getNews(), false);
 document.getElementById("logo").addEventListener("click", function(){ getNews(); }, false);
 document.getElementById("m1").addEventListener("click", function(){ getNews(); }, false);
-document.getElementById("m2-1").addEventListener("click", function(){ getContent("stanovi.html"); }, false);
-document.getElementById("m2-2").addEventListener("click", function(){ getContent("stanovi.html"); }, false);
-document.getElementById("m2-3").addEventListener("click", function(){ getContent("stanovi.html"); }, false);
+document.getElementById("m2-1").addEventListener("click", function(){ getNekretnine("stan"); }, false);
+document.getElementById("m2-2").addEventListener("click", function(){ getNekretnine("kuca"); }, false);
+document.getElementById("m2-3").addEventListener("click", function(){ getNekretnine("poslovni"); }, false);
 document.getElementById("m4-1").addEventListener("click", function(){ getContent("agenti.html"); }, false);
 document.getElementById("m4-2").addEventListener("click", function(){ getContent("kontakt.html"); }, false);
 document.getElementById("m5").addEventListener("click", function(){ getContent("linkovi.html"); }, false);
+document.getElementById("m6").addEventListener("click", function(){ getContent("login.html"); }, false);
+document.getElementById("m7").addEventListener("click", function(){ getContent("panel.php"); }, false);
